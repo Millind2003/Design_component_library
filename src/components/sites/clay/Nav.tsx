@@ -9,7 +9,15 @@ import { cn } from "@/lib/utils";
  * Floating pill nav over the hero. It starts transparent on the dark green and
  * picks up a light surface once the page scrolls past the hero.
  */
-export function Nav({ variant = "dark" }: { variant?: "dark" | "light" }) {
+export function Nav({
+  variant = "dark",
+  offsetTop,
+}: {
+  variant?: "dark" | "light";
+  /** Top-positioning classes, for routes that stack a banner above the nav
+   *  (the persona pages). Defaults to flush with the top. */
+  offsetTop?: string;
+}) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState<string | null>(null);
   const [mobile, setMobile] = useState(false);
@@ -25,7 +33,7 @@ export function Nav({ variant = "dark" }: { variant?: "dark" | "light" }) {
 
   return (
     <div
-      className="fixed inset-x-0 top-0 z-50 pt-4"
+      className={cn("fixed inset-x-0 z-50 pt-4", offsetTop ?? "top-0")}
       onMouseLeave={() => setOpen(null)}
     >
       <Container>

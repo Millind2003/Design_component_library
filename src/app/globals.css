@@ -50,6 +50,31 @@
   --color-cy-green: var(--cy-green);
   --font-cy-sans: var(--font-cy-sans-brand), "Arial", ui-sans-serif, system-ui, sans-serif;
   --font-cy-mono: var(--font-cy-mono-brand), ui-monospace, monospace;
+  /* sculpt.clay.com — the Clay GTM conference microsite */
+  --color-sc-ink: var(--sc-ink);
+  --color-sc-paper: var(--sc-paper);
+  --color-sc-oat-200: var(--sc-oat-200);
+  --color-sc-oat-300: var(--sc-oat-300);
+  --color-sc-oat-400: var(--sc-oat-400);
+  --color-sc-ube: var(--sc-ube);
+  --color-sc-lavender: var(--sc-lavender);
+  --color-sc-lemon-500: var(--sc-lemon-500);
+  --color-sc-slushie-500: var(--sc-slushie-500);
+  --color-sc-lime-200: var(--sc-lime-200);
+  --color-sc-lime-300: var(--sc-lime-300);
+  --color-sc-blueberry-200: var(--sc-blueberry-200);
+  --color-sc-blueberry-400: var(--sc-blueberry-400);
+  --color-sc-dragonfruit-200: var(--sc-dragonfruit-200);
+  --color-sc-dragonfruit-300: var(--sc-dragonfruit-300);
+  --color-sc-dragonfruit-500: var(--sc-dragonfruit-500);
+  --color-sc-lemon-200: var(--sc-lemon-200);
+  --color-sc-lemon-300: var(--sc-lemon-300);
+  --color-sc-slushie-200: var(--sc-slushie-200);
+  --color-sc-slushie-300: var(--sc-slushie-300);
+  --color-sc-tangerine-200: var(--sc-tangerine-200);
+  --color-sc-tangerine-300: var(--sc-tangerine-300);
+  --font-sc-sans: var(--font-cy-sans-brand), "Arial", ui-sans-serif, system-ui, sans-serif;
+  --font-sc-mono: var(--font-cy-mono-brand), ui-monospace, monospace;
   /* planhat.com */
   --color-ph-ink: var(--ph-ink);
   --color-ph-muted: var(--ph-muted);
@@ -241,6 +266,32 @@
   --cy-radius-sm: 0.75rem;
   --cy-radius: 1.5rem;
   --cy-radius-lg: 3rem;
+
+  /* sculpt.clay.com — read off the live Webflow bundle. Sculpt inverts Clay's
+     palette: near-black ground, oat paper, and the fruit accents used as large
+     flat blobs behind the type. */
+  --sc-ink: #1b1a18;
+  --sc-paper: #fefdfb;
+  --sc-oat-200: #f4f3f0;
+  --sc-oat-300: #d1cdc7;
+  --sc-oat-400: #7b7974;
+  --sc-ube: #a17bf9;
+  --sc-lavender: #c8bbfb;
+  --sc-lemon-500: #372201;
+  --sc-slushie-500: #002833;
+  --sc-lime-200: #eef773;
+  --sc-lime-300: #cbd810;
+  --sc-blueberry-200: #bedffe;
+  --sc-blueberry-400: #395afa;
+  --sc-dragonfruit-200: #f8b9e4;
+  --sc-dragonfruit-300: #ff70d2;
+  --sc-dragonfruit-500: #46022f;
+  --sc-lemon-200: #fbe189;
+  --sc-lemon-300: #fdbe11;
+  --sc-slushie-200: #aaebfd;
+  --sc-slushie-300: #3bd3fd;
+  --sc-tangerine-200: #fcc9ab;
+  --sc-tangerine-300: #ff7714;
 
   /* planhat.com — computed off the live page. A near-monochrome system:
      white or black grounds, one hairline grey, and a muted grey for eyebrows. */
@@ -1121,6 +1172,223 @@
       opacity: 1;
       transform: none;
       transition: none;
+    }
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   sculpt.clay.com — the Clay GTM conference microsite.
+
+   Webflow drives this site from responsive custom properties, so the type and
+   spacing scale below is the resolved value at each of its four breakpoints
+   (>=992, <=991, <=767, <=479) rewritten mobile-first. Roobert / Roobert Mono
+   are proprietary; both map onto the faces the Clay clone already loads.
+--------------------------------------------------------------------------- */
+@layer components {
+  /* container-large */
+  .sc-container {
+    width: 100%;
+    max-width: 80rem;
+    margin-inline: auto;
+  }
+
+  /* padding-global — the horizontal gutter */
+  .sc-pad-x {
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 480px) {
+    .sc-pad-x {
+      padding-inline: 2rem;
+    }
+  }
+  @media (min-width: 768px) {
+    .sc-pad-x {
+      padding-inline: 2.25rem;
+    }
+  }
+  @media (min-width: 992px) {
+    .sc-pad-x {
+      padding-inline: 4rem;
+    }
+  }
+
+  /* padding-vertical padding-large */
+  .sc-pad-y {
+    padding-block: 2.75rem;
+  }
+  @media (min-width: 768px) {
+    .sc-pad-y {
+      padding-block: 3.5rem;
+    }
+  }
+  @media (min-width: 992px) {
+    .sc-pad-y {
+      padding-block: 4rem;
+    }
+  }
+
+  /* Headings. Webflow sets `leading-trim: both; text-edge: cap`, which no
+     shipping browser implements yet, so the tight line-heights below are what
+     actually renders. */
+  .sc-h1 {
+    font-size: 3rem;
+    font-weight: 360;
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+  }
+  .sc-h2 {
+    font-size: 2.875rem;
+    font-weight: 360;
+    line-height: 0.97;
+    letter-spacing: -0.03em;
+  }
+  .sc-h3 {
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 0.97;
+    letter-spacing: -0.03em;
+  }
+  @media (min-width: 768px) {
+    .sc-h1 {
+      font-size: 4rem;
+    }
+    .sc-h2 {
+      font-size: 3rem;
+    }
+  }
+  @media (min-width: 992px) {
+    .sc-h1 {
+      font-size: 5rem;
+    }
+    .sc-h2 {
+      font-size: 4rem;
+    }
+    .sc-h3 {
+      font-size: 2.25rem;
+    }
+  }
+
+  /* Body sizes */
+  .sc-text-md {
+    font-size: 1.4rem;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+  }
+  @media (min-width: 992px) {
+    .sc-text-md {
+      font-size: 1.5rem;
+    }
+  }
+  .sc-text-rg {
+    font-size: 1.15rem;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+  }
+  .sc-text-sm {
+    font-size: 1rem;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+  }
+  .sc-text-xs {
+    font-size: 0.8rem;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+  }
+
+  /* eyebrow — Roobert SemiMono, uppercase, wide tracking */
+  .sc-eyebrow {
+    font-family: var(--font-sc-mono);
+    font-size: 0.8rem;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* Button base: Roobert SemiMono, uppercase, wide tracking. Fill, radius and
+     padding are variant-specific and set at the call site. */
+  .sc-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2rem;
+    font-family: var(--font-sc-mono);
+    font-weight: 550;
+    line-height: 1.2;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
+  }
+  .sc-btn .sc-btn-clip {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    width: 1.25em;
+    height: 1.25em;
+  }
+  .sc-btn .sc-btn-icon {
+    position: absolute;
+    inset: 0;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  .sc-btn .sc-btn-icon-top {
+    transform: translate(-100%, 100%);
+  }
+  .sc-btn:hover .sc-btn-icon-top {
+    transform: translate(0, 0);
+  }
+  .sc-btn:hover .sc-btn-icon-base {
+    transform: translate(100%, -100%);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sc-btn .sc-btn-icon {
+      transition: none;
+    }
+  }
+
+  /* The speaker rails scroll as one continuous vertical track. */
+  @keyframes sc-marquee-y {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-50%);
+    }
+  }
+  .sc-marquee-y {
+    animation: sc-marquee-y var(--sc-marquee-duration, 60s) linear infinite;
+  }
+  .sc-marquee-pause:hover .sc-marquee-y {
+    animation-play-state: paused;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sc-marquee-y {
+      animation: none;
+    }
+  }
+}
+
+@layer components {
+  /* The hero wordmark's letters lift in sequence on hover — a CSS stand-in for
+     the original embed's per-letter physics jiggle. */
+  .sc-wordmark-letter {
+    transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transform-box: fill-box;
+    transform-origin: center bottom;
+  }
+  .sc-wordmark:hover .sc-wordmark-letter {
+    transform: translateY(-4%);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sc-wordmark-letter {
+      transition: none;
+    }
+    .sc-wordmark:hover .sc-wordmark-letter {
+      transform: none;
     }
   }
 }
