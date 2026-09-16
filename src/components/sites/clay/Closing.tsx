@@ -85,7 +85,14 @@ export function Updates() {
  * background behind it (`position: absolute; inset: 0` on the original), then
  * seven link columns and a credit bar.
  */
-export function Footer() {
+export function Footer({
+  primaryCta,
+}: {
+  /** Per-route override: the persona pages label this "Start building for free". */
+  primaryCta?: { label: string; href: string };
+} = {}) {
+  const primary = primaryCta ?? footer.cta.primary;
+
   return (
     <footer className="relative flex flex-col items-center overflow-clip bg-[var(--cy-footer)] bg-gradient-to-b from-white to-[var(--cy-footer)] to-[15%]">
       {/* closing CTA */}
@@ -97,8 +104,8 @@ export function Footer() {
           {footer.cta.body}
         </p>
         <div className="mt-7 flex flex-wrap justify-center gap-3">
-          <Button href={footer.cta.primary.href} variant="dark">
-            {footer.cta.primary.label}
+          <Button href={primary.href} variant="dark">
+            {primary.label}
           </Button>
           <Button href={footer.cta.secondary.href} variant="secondary" className="border">
             {footer.cta.secondary.label}
