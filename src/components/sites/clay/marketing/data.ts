@@ -171,7 +171,7 @@ export const logos: MarketingLogo[] = [
     alt: "Ramp logo",
   },
   {
-    logo: "/sites/clay/frame.svg",
+    logo: "/sites/clay/frame-67cf030c.svg",
     alt: "Rippling logo",
     href: "https://www.clay.com/blog/rippling-case-study",
     pill: "Case study",

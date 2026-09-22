@@ -250,11 +250,17 @@
   --cy-tangerine-100: #fff3ed;
   --cy-tangerine-400: #b53d0a;
   --cy-blueberry-100: aliceblue;
+  --cy-blueberry-200: #bedffe;
+  --cy-blueberry-300: #429eff;
   --cy-blueberry-400: #395afa;
   --cy-pomegranate-200: #fcbabe;
   --cy-pomegranate-400: #c22e3d;
   --cy-dragonfruit-100: #fff0fa;
   --cy-dragonfruit-400: #cc089e;
+
+  /* Clay's hairline rule (--_theme--appearance---border), used across the
+     Claygent page for card borders, frame lines and table cells. */
+  --cy-border: #e0dedc;
 
   --cy-green: #035d44;       /* the hero's dark green ground */
   --cy-footer: #fffdf9;

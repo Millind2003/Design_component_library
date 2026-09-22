@@ -11,13 +11,22 @@ import type { MarketingLogo, MarketingTestimonial } from "./types";
  * The reveal is desktop-only in the source: Webflow scopes it to
  * `@media (min-width: 992px)`, so below that the cards stay at opacity 0 with
  * pointer-events disabled and only the logos show.
+ *
+ * /audiences runs off the same Webflow component with a different heading, so
+ * both props default to the marketing copy rather than being duplicated.
  */
-export function LogoWall() {
+export function LogoWall({
+  eyebrow = logoWallEyebrow,
+  items = logos,
+}: {
+  eyebrow?: string;
+  items?: MarketingLogo[];
+} = {}) {
   return (
     <section className="relative overflow-visible pb-0">
       <Container>
         <h2 className="mx-auto mb-6 block pt-16 text-center text-[0.75em] font-semibold uppercase leading-[1.2] tracking-[0.09em]">
-          {logoWallEyebrow}
+          {eyebrow}
         </h2>
 
         <div className="relative isolate z-[99] mt-6 w-full">
@@ -29,7 +38,7 @@ export function LogoWall() {
               "min-[992px]:gap-4 min-[992px]:grid-cols-[repeat(10,minmax(2rem,7rem))]",
             )}
           >
-            {logos.map((logo, i) => (
+            {items.map((logo, i) => (
               <LogoCell key={`${logo.logo}-${i}`} logo={logo} />
             ))}
           </div>

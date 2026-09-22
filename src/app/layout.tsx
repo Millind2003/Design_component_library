@@ -26,7 +26,6 @@ const mvSans = Inter_Tight({
 const mvMono = Geist_Mono({
   variable: "--font-mv-mono-brand",
   subsets: ["latin"],
-  weight: ["400", "500"],
   display: "swap",
 });
 
